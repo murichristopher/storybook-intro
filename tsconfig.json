@@ -13,6 +13,8 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true
-  }
+    "emitDeclarationOnly": true,
+    "rootDir": "src" // ? https://github.com/rollup/plugins/issues/287
+  },
+  "include": ["**/*.ts"] // ? https://github.com/rollup/plugins/issues/287
 }

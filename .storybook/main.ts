@@ -16,6 +16,18 @@ const config: StorybookConfig = {
       },
     },
   },
+
+  // ? https://storybook.js.org/docs/configure/compilers#the-swc-compiler-doesnt-work-with-react
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: "automatic",
+        },
+      },
+    },
+  }),
+
   docs: {
     autodocs: "tag",
   },

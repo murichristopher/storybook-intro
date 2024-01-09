@@ -1,0 +1,2 @@
+- [] Add docker
+- [] Add properly types instead of `any` in configuration files
