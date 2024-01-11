@@ -3,16 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateTaskState } from "../store";
 import Task from "../Task";
 
-const TaskList = React.forwardRef<
-  HTMLDivElement,
-  {
-    state: string;
-    events: {
-      onArchiveTask?: (id: string) => void;
-      onPinTask?: (id: string) => void;
-    };
-  }
->((_, ref) => {
+const TaskList = React.forwardRef<HTMLDivElement, {}>((_, ref) => {
   const tasks = useSelector((state: any) => {
     const tasksInOrder = [
       ...state.taskbox.tasks.filter((t: any) => t.state === "TASK_PINNED"),

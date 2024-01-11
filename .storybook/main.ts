@@ -16,6 +16,7 @@ const config: StorybookConfig = {
       },
     },
   },
+  staticDirs: ["../public"],
 
   // ? https://storybook.js.org/docs/configure/compilers#the-swc-compiler-doesnt-work-with-react
   swc: () => ({

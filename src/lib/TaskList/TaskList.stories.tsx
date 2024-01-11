@@ -1,3 +1,4 @@
+import React from "react";
 import TaskList from "./TaskList";
 import * as TaskStories from "../Task/Task.stories";
 
@@ -5,7 +6,6 @@ import { Provider } from "react-redux";
 
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-// A super-simple mock of the state of the store
 export const MockedState = {
   tasks: [
     { ...TaskStories.Default.args.task, id: "1", title: "Task 1" },
@@ -19,7 +19,7 @@ export const MockedState = {
   error: null,
 };
 
-const Mockstore = ({ taskboxState, children }) => (
+const Mockstore = ({ taskboxState, children }: any) => (
   <Provider
     store={configureStore({
       reducer: {
@@ -29,7 +29,7 @@ const Mockstore = ({ taskboxState, children }) => (
           reducers: {
             updateTaskState: (state, action) => {
               const { id, newTaskState } = action.payload;
-              const task = state.tasks.findIndex((task) => task.id === id);
+              const task = state.tasks.findIndex((task: any) => task.id === id);
               if (task >= 0) {
                 state.tasks[task].state = newTaskState;
               }
@@ -46,22 +46,23 @@ const Mockstore = ({ taskboxState, children }) => (
 export default {
   component: TaskList,
   title: "TaskList",
-  decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
+  decorators: [
+    (story: any) => <div style={{ padding: "3rem" }}>{story()}</div>,
+  ],
   tags: ["autodocs"],
   excludeStories: /.*MockedState$/,
-  // ? 💡 excludeStories is a Storybook configuration field that prevents our mocked state to be treated as a story.
   // ? 💡 excludeStories is a Storybook configuration field that prevents our mocked state to be treated as a story.
 };
 
 export const Default = {
   decorators: [
-    (story) => <Mockstore taskboxState={MockedState}>{story()}</Mockstore>,
+    (story: any) => <Mockstore taskboxState={MockedState}>{story()}</Mockstore>,
   ],
 };
 
 export const WithPinnedTasks = {
   decorators: [
-    (story) => {
+    (story: any) => {
       const pinnedtasks = [
         ...MockedState.tasks.slice(0, 5),
         { id: "6", title: "Task 6 (pinned)", state: "TASK_PINNED" },
@@ -83,7 +84,7 @@ export const WithPinnedTasks = {
 
 export const Loading = {
   decorators: [
-    (story) => (
+    (story: any) => (
       <Mockstore
         taskboxState={{
           ...MockedState,
@@ -98,7 +99,7 @@ export const Loading = {
 
 export const Empty = {
   decorators: [
-    (story) => (
+    (story: any) => (
       <Mockstore
         taskboxState={{
           ...MockedState,

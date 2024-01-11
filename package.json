@@ -7,7 +7,9 @@
   "scripts": {
     "build": "rollup -c --environment NODE_ENV:development",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook",
+    "init-msw": "msw init public/"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -21,8 +23,12 @@
     "@storybook/react": "^7.6.7",
     "@storybook/react-webpack5": "^7.6.7",
     "@storybook/test": "^7.6.7",
+    "@storybook/test-runner": "^0.16.0",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.47",
+    "msw": "^1.2.1",
+    "msw-storybook-addon": "^1.10.0",
+    "playwright": "^1.40.1",
     "postcss": "^8.4.33",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -40,5 +46,8 @@
     "@reduxjs/toolkit": "^2.0.1",
     "react-redux": "^9.0.4"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "msw": {
+    "workerDirectory": ""
+  }
 }
